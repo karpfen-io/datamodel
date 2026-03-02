@@ -1,3 +1,5 @@
+![Logo](https://avatars.githubusercontent.com/u/264260364?s=200&v=4)
+
 # karpfen DSL TOOLS
 
 This repository contains tools and libraries for working with the *karpfen ecosystem* domain-specific languages (karpfen DSLs).
