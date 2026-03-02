@@ -1,3 +1,18 @@
+/**
+ * Copyright 2026 Karl Kegel
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package parser
 
 import kmeta.*
@@ -5,35 +20,13 @@ import org.antlr.v4.runtime.CharStreams
 import org.antlr.v4.runtime.CommonTokenStream
 import java.io.File
 
-/**
- * Parser für kmeta-Dateien mit ANTLR v4
- *
- * Verwendung:
- * ```kotlin
- * val parser = KmetaFileParser()
- * val kmetaFile = parser.parseFile("path/to/file.kmeta")
- *
- * for (type in kmetaFile.types) {
- *     println("Type: ${type.name}")
- *     for (prop in type.props) {
- *         println("  Prop: ${prop.key} = ${prop.value}")
- *     }
- * }
- * ```
- */
 class KmetaFileParser {
 
-    /**
-     * Parst eine kmeta-Datei und gibt einen Metamodel-AST zurück
-     */
     fun parseFile(filePath: String): KmetaFile {
         val file = File(filePath)
         return parseString(file.readText())
     }
 
-    /**
-     * Parst einen String als kmeta-Datei
-     */
     fun parseString(content: String): KmetaFile {
         val inputStream = CharStreams.fromString(content)
         val lexer = KmetaLexer(inputStream)
@@ -47,9 +40,6 @@ class KmetaFileParser {
     }
 }
 
-/**
- * Custom Visitor zur Verarbeitung des Parse-Trees
- */
 class KmetaParseVisitor : KmetaBaseVisitor<KmetaFile>() {
     private val typeDefinitions = mutableListOf<TypeDefinition>()
 
@@ -111,7 +101,6 @@ class KmetaParseVisitor : KmetaBaseVisitor<KmetaFile>() {
     }
 }
 
-// Data Classes für den AST
 data class KmetaFile(val types: List<TypeDefinition>)
 
 data class TypeDefinition(

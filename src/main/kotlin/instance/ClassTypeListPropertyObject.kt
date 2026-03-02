@@ -20,7 +20,7 @@ import meta.ClassTypeProperty
 class ClassTypeListPropertyObject(
     ofType: ClassTypeProperty,
     key: String,
-    private var values: MutableList<DataObject>
+    private var values: MutableList<ObjectReference>
 ) : ClassTypePropertyObject(ofType, key) {
 
     override fun isList(): Boolean {
@@ -28,6 +28,10 @@ class ClassTypeListPropertyObject(
     }
 
     fun getValues(): List<DataObject> {
+        return values.map { it.obj!! }
+    }
+
+    fun getValueRefs(): List<ObjectReference> {
         return values
     }
 
@@ -37,7 +41,7 @@ class ClassTypeListPropertyObject(
             if(value.ofType.name != getClassType()) {
                 throw IllegalArgumentException("Expected a DataObject of type ${getClassType()}")
             }
-            this.values.add(value)
+            this.values.add(ObjectReference(value.id, value))
         }
     }
 }

@@ -13,10 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package meta
+package instance
 
-data class ClassTypeReference(
-    val associationType: AssociationType,
-    val classTypeName: String,
-    var classType: ClassType? = null
+data class ObjectReference(
+    var objectId: String,
+    var obj: DataObject? = null
 )

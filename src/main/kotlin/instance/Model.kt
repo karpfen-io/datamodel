@@ -15,7 +15,9 @@
  */
 package instance
 
-data class Model(val objects: MutableList<DataObject>){
+import meta.Metamodel
+
+data class Model(val objects: MutableList<DataObject>, val metamodel: Metamodel? = null){
 
     fun objectMapByType(): Map<String, List<DataObject>> {
         return objects.groupBy { it.ofType.name }

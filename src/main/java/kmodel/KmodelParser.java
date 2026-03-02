@@ -1,5 +1,5 @@
 // Generated from kmodel/Kmodel.g4 by ANTLR 4.13.1
-package kmeta;
+package kmodel;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;

@@ -36,9 +36,9 @@ class DataObject(
     fun getRel(key: String): List<DataObject> {
         val rel = relations.firstOrNull { it.key == key } ?: return listOf()
         return if (rel.isList()) {
-            (rel as ClassTypeListPropertyObject).getValues()
+            (rel as ClassTypeListPropertyObject).getValues().filterNotNull()
         } else {
-            listOf((rel as ClassTypeAtomicPropertyObject).getValue())
+            listOf((rel as ClassTypeAtomicPropertyObject).getValue()).filterNotNull()
         }
     }
 

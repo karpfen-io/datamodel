@@ -20,22 +20,31 @@ import meta.ClassTypeProperty
 class ClassTypeAtomicPropertyObject(
     ofType: ClassTypeProperty,
     key: String,
-    private var value: DataObject
+    private var value: ObjectReference
 ) : ClassTypePropertyObject(ofType, key) {
 
     override fun isList(): Boolean {
         return false
     }
 
-    fun getValue(): DataObject {
+    fun getValue(): DataObject? {
+        return value.obj
+    }
+
+    fun getValueRef(): ObjectReference {
         return value
+    }
+
+    fun setValueRef(ref: ObjectReference) {
+        this.value = ref
     }
 
     fun setValue(value: DataObject) {
         if(value.ofType.name != getClassType()) {
             throw IllegalArgumentException("Expected a DataObject of type ${getClassType()}")
         }
-        this.value = value
+        this.value.obj = value
+        this.value.objectId = value.id
     }
 
 }

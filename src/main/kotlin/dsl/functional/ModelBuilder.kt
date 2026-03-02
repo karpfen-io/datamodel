@@ -20,6 +20,7 @@ import instance.ClassTypeListPropertyObject
 import instance.ClassTypePropertyObject
 import instance.DataObject
 import instance.Model
+import instance.ObjectReference
 import instance.SimpleAtomicPropertyObject
 import instance.SimpleListPropertyObject
 import instance.SimplePropertyObject
@@ -66,16 +67,17 @@ class ModelBuilder(val meta: Metamodel) {
         val relList = mutableListOf<ClassTypePropertyObject>()
         for (relType in classType.objectProperties) {
             if (relType.isList) {
-                relList.add(ClassTypeListPropertyObject(relType, relType.key, mutableListOf<DataObject>()))
+                relList.add(ClassTypeListPropertyObject(relType, relType.key, mutableListOf<ObjectReference>()))
             } else {
-                relList.add(ClassTypeAtomicPropertyObject(relType, relType.key, makeObject(relType.reference.classTypeName, "")))
+                relList.add(ClassTypeAtomicPropertyObject(relType, relType.key,
+                    ObjectReference("",makeObject(relType.reference.classTypeName, ""))))
             }
         }
         return relList
     }
 
     fun build(): Model {
-        return Model(dataObjects)
+        return Model(dataObjects, meta)
     }
 
 }
