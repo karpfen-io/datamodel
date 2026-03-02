@@ -1,36 +1,35 @@
-package parser
+package examples
 
-import parser.*
+import parser.KmetaFileParser
+import parser.ListValue
+import parser.StringValue
 
 fun main() {
     val parser = KmetaFileParser()
 
-    // Beispiel-Inhalt
     val content = """
         type "Person" "A person entity" {
-            prop("name", "String")
-            prop("age", "Int")
+            prop("name", "string")
+            prop("age", "number")
             has("address", list("Address"))
             knows("friends", list("Person"))
         }
         
         type "Address" "An address entity" {
-            prop("street", "String")
-            prop("city", "String")
-            prop("zipCode", "String")
+            prop("street", "string")
+            prop("city", "string")
+            prop("zipCode", "string")
         }
     """.trimIndent()
 
-    // Parse den String
     val kmetaFile = parser.parseString(content)
 
-    // Ausgabe der geparsten Daten
     println("=".repeat(50))
     println("Parsed ${kmetaFile.types.size} type(s):")
     println("=".repeat(50))
 
     for (type in kmetaFile.types) {
-        println("\n📦 Type: ${type.name}")
+        println("\nType: ${type.name}")
         println("   Description: ${type.description}")
 
         if (type.props.isNotEmpty()) {

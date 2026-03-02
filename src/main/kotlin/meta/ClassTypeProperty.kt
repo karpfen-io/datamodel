@@ -17,7 +17,7 @@ package meta
 
 data class ClassTypeProperty(
     val key: String,
-    val ofType: ClassType,
+    val reference: ClassTypeReference,
     val isList: Boolean,
     val associationType: AssociationType
 )

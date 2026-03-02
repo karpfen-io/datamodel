@@ -32,8 +32,8 @@ class ClassTypeAtomicPropertyObject(
     }
 
     fun setValue(value: DataObject) {
-        if(value.ofType != getClassType()) {
-            throw IllegalArgumentException("Expected a DataObject of type ${getClassType().name}")
+        if(value.ofType.name != getClassType()) {
+            throw IllegalArgumentException("Expected a DataObject of type ${getClassType()}")
         }
         this.value = value
     }

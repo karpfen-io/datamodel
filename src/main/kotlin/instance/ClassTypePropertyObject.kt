@@ -26,7 +26,7 @@ abstract class ClassTypePropertyObject(val ofType: ClassTypeProperty, val key: S
         return ofType
     }
 
-    fun getClassType(): ClassType {
-        return ofType.ofType
+    fun getClassType(): String {
+        return ofType.reference.classTypeName
     }
 }

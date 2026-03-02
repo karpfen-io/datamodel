@@ -29,4 +29,14 @@ data class ClassType(
     fun objectPropsAsMap(): Map<String, ClassTypeProperty> {
         return objectProperties.associateBy { it.key }
     }
+
+    fun getSimpleProperty(key: String): SimpleProperty {
+        return simplePropsAsMap()[key] ?:
+        throw IllegalArgumentException("No simple property with key $key found in class type $name")
+    }
+
+    fun getObjectProperty(key: String): ClassTypeProperty {
+        return objectPropsAsMap()[key] ?:
+        throw IllegalArgumentException("No object property with key $key found in class type $name")
+    }
 }

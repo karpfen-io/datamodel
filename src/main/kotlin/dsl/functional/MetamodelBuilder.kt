@@ -18,6 +18,7 @@ package dsl.functional
 import meta.AssociationType
 import meta.ClassType
 import meta.ClassTypeProperty
+import meta.ClassTypeReference
 import meta.Metamodel
 import meta.SimpleProperty
 
@@ -65,11 +66,21 @@ class MetamodelBuilder {
     }
 
     fun makeClassProp(key: String, classT: String, relT: AssociationType): ClassTypeProperty {
-        return ClassTypeProperty(key, classTypes.get(classT)!!, false, relT)
+        return ClassTypeProperty(
+            key,
+            ClassTypeReference(relT, classT, classTypes[classT]!!),
+            false,
+            relT
+        )
     }
 
     fun makeClassPropList(key: String, classT: String, relT: AssociationType): ClassTypeProperty {
-        return ClassTypeProperty(key, classTypes.get(classT)!!, true, relT)
+        return ClassTypeProperty(
+            key,
+            ClassTypeReference(relT, classT, classTypes[classT]!!),
+            true,
+            relT
+        )
     }
 
     fun setRoot(rootClassName: String){

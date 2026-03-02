@@ -16,7 +16,7 @@ type "Robot" "A cleaning robot that can move around the room and log its actions
     prop("speed", "number")
     prop("log", list("string"))
     has("boundingBox", "TwoDObject")
-    knows("obstacles, list("Obstacle"))
+    knows("obstacles", list("Obstacle"))
 }
 
 type "Room" "A room that contains a robot and obstacles" {

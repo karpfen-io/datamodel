@@ -34,8 +34,8 @@ class ClassTypeListPropertyObject(
     fun setValues(incomingValues: List<DataObject>) {
         values.clear()
         for(value in incomingValues) {
-            if(value.ofType != getClassType()) {
-                throw IllegalArgumentException("Expected a DataObject of type ${getClassType().name}")
+            if(value.ofType.name != getClassType()) {
+                throw IllegalArgumentException("Expected a DataObject of type ${getClassType()}")
             }
             this.values.add(value)
         }

@@ -68,7 +68,7 @@ class ModelBuilder(val meta: Metamodel) {
             if (relType.isList) {
                 relList.add(ClassTypeListPropertyObject(relType, relType.key, mutableListOf<DataObject>()))
             } else {
-                relList.add(ClassTypeAtomicPropertyObject(relType, relType.key, makeObject(relType.ofType.name, "")))
+                relList.add(ClassTypeAtomicPropertyObject(relType, relType.key, makeObject(relType.reference.classTypeName, "")))
             }
         }
         return relList
