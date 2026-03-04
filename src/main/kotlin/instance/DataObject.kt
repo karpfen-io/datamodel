@@ -17,6 +17,14 @@ package instance
 
 import meta.ClassType
 
+/**
+ * Represents a concrete instance of a class type in a model.
+ *
+ * @property ofType The ClassType definition this object instantiates.
+ * @property id Unique identifier for this object instance.
+ * @property properties List of simple property values for this object.
+ * @property relations List of object property references for this object.
+ */
 class DataObject(
     val ofType: ClassType,
     val id: String = "",
@@ -24,6 +32,12 @@ class DataObject(
     val relations: MutableList<ClassTypePropertyObject>
 ){
 
+    /**
+     * Retrieves property values by key.
+     *
+     * @param key The property name to retrieve.
+     * @return List of property values (single element for atomic properties).
+     */
     fun getProp(key: String): List<Any> {
         val prop = properties.firstOrNull { it.key == key } ?: return listOf()
         return if (prop.isList()) {
@@ -33,6 +47,12 @@ class DataObject(
         }
     }
 
+    /**
+     * Retrieves related objects by key.
+     *
+     * @param key The relation name to retrieve.
+     * @return List of related DataObjects (single element for atomic relations).
+     */
     fun getRel(key: String): List<DataObject> {
         val rel = relations.firstOrNull { it.key == key } ?: return listOf()
         return if (rel.isList()) {

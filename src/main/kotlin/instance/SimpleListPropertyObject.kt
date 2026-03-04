@@ -18,6 +18,13 @@ package instance
 import meta.SimpleProperty
 import meta.SimplePropertyType
 
+/**
+ * Represents a list-valued simple property in a DataObject.
+ *
+ * @property ofType The SimpleProperty definition from the metamodel.
+ * @property key The property name.
+ * @property values The list of stored values.
+ */
 class SimpleListPropertyObject(
     ofType: SimpleProperty,
     key: String,

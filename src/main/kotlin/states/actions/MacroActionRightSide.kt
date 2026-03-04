@@ -15,5 +15,14 @@
  */
 package states.actions
 
+/**
+ * Represents a macro function call as the right-side of an action rule.
+ *
+ * @property macroName The name of the macro function to call.
+ * @property args List of string arguments to pass to the macro.
+ */
 data class MacroActionRightSide(val macroName: String, val args: List<String>) :
-    ActionRightSide(ActionValueType.MACRO)
+    ActionRightSide(ActionValueType.MACRO) {
+    override fun toString(): String =
+        "MacroActionRightSide(macroName=$macroName, args=${args.size})"
+}

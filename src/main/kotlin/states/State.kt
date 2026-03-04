@@ -17,6 +17,18 @@ package states
 
 import states.actions.ActionBlock
 
+/**
+ * Represents a single state in a hierarchical state machine.
+ *
+ * States can be nested and can define entry and do action blocks.
+ *
+ * @property name The name identifier for this state.
+ * @property onEntry Actions executed when entering this state.
+ * @property onDo Actions executed while in this state.
+ * @property innerStates Child states nested within this state.
+ * @property outerState Reference to the parent state, if this state is nested.
+ * @property isInitial True if this is the initial state of the machine or parent state.
+ */
 data class State(
     val name: String,
     val onEntry: ActionBlock,
@@ -24,4 +36,7 @@ data class State(
     val innerStates: MutableList<State>,
     val outerState: State? = null,
     val isInitial: Boolean = false
-)
+) {
+    override fun toString(): String =
+        "State(name=$name, isInitial=$isInitial, innerStates=${innerStates.size}, entryActions=${onEntry.actions.size}, doActions=${onDo.actions.size})"
+}

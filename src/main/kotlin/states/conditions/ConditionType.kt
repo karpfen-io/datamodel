@@ -15,6 +15,13 @@
  */
 package states.conditions
 
+/**
+ * Enumeration of possible transition condition types.
+ *
+ * - EVENT: Condition based on event occurrence.
+ * - EVAL: Condition based on code evaluation.
+ * - VALUE: Condition based on a variable value.
+ */
 enum class ConditionType {
     EVENT,
     EVAL,

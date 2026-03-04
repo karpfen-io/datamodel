@@ -15,4 +15,12 @@
  */
 package states.macros
 
-data class ReturnsDirective(val returnType: String)
+/**
+ * Represents the return type specification of a macro definition.
+ *
+ * @property returnType The type that this macro returns.
+ */
+data class ReturnsDirective(val returnType: String) {
+    override fun toString(): String =
+        "ReturnsDirective(returnType=$returnType)"
+}

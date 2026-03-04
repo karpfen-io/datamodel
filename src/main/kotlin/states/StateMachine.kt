@@ -15,10 +15,20 @@
  */
 package states
 
+/**
+ * Represents a hierarchical state machine definition attached to a specific class.
+ *
+ * @property attachedToClass The name of the class this state machine is attached to.
+ * @property states List of top-level states defined in this state machine.
+ * @property transitions List of state transitions with conditions.
+ * @property macros List of macro definitions for use in actions and conditions.
+ */
 data class StateMachine(
     val attachedToClass: String,
     val states: MutableList<State>,
     val transitions: MutableList<Transition>,
     val macros: MutableList<Macro>
     ) {
+    override fun toString(): String =
+        "StateMachine(attachedToClass=$attachedToClass, states=${states.size}, transitions=${transitions.size}, macros=${macros.size})"
 }

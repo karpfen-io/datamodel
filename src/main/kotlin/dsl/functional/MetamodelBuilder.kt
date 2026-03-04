@@ -22,11 +22,17 @@ import meta.ClassTypeReference
 import meta.Metamodel
 import meta.SimpleProperty
 
+/**
+ * Provides a functional DSL builder for constructing Metamodel objects.
+ *
+ * Allows programmatic creation of metamodels without parsing DSL text.
+ */
 class MetamodelBuilder {
 
     private val classTypes = mutableMapOf<String, ClassType>()
     private var rootClass: String? = null
 
+    /** Association type constant for embedded relationships */
     public val EMBEDDED = AssociationType.EMBEDDED
     public val LINK = AssociationType.LINK
 

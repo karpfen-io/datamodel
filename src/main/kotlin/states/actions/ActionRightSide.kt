@@ -15,4 +15,12 @@
  */
 package states.actions
 
-open class ActionRightSide(val actionValueType: ActionValueType) {}
+/**
+ * Base class for different types of right-side expressions in action rules.
+ *
+ * @property actionValueType The type of value this right-side represents.
+ */
+open class ActionRightSide(val actionValueType: ActionValueType) {
+    override fun toString(): String =
+        "ActionRightSide(actionValueType=$actionValueType)"
+}

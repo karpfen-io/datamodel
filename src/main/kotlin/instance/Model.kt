@@ -17,8 +17,19 @@ package instance
 
 import meta.Metamodel
 
+/**
+ * Represents a model instance containing a collection of objects and their metamodel.
+ *
+ * @property objects The collection of data objects in this model instance.
+ * @property metamodel The metamodel that defines the structure for these objects.
+ */
 data class Model(val objects: MutableList<DataObject>, val metamodel: Metamodel? = null){
 
+    /**
+     * Groups all objects in the model by their class type.
+     *
+     * @return A map of class type names to lists of objects of that type.
+     */
     fun objectMapByType(): Map<String, List<DataObject>> {
         return objects.groupBy { it.ofType.name }
     }

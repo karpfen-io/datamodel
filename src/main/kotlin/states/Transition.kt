@@ -17,9 +17,22 @@ package states
 
 import states.conditions.Condition
 
+/**
+ * Represents a transition between two states in a state machine.
+ *
+ * Transitions are triggered when their associated condition evaluates to true.
+ *
+ * @property fromState The name of the source state.
+ * @property toState The name of the target state.
+ * @property allowLoops True if this transition is allowed to loop back to the same state.
+ * @property condition The condition that must be satisfied for this transition to occur.
+ */
 data class Transition(
     val fromState: String,
     val toState: String,
     val allowLoops: Boolean,
     val condition: Condition,
-)
+) {
+    override fun toString(): String =
+        "Transition(fromState=$fromState, toState=$toState, allowLoops=$allowLoops, condition=${condition.conditionType})"
+}

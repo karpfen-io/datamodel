@@ -15,8 +15,14 @@
  */
 package meta
 
+/**
+ * Enumeration of primitive property types supported in the metamodel.
+ */
 enum class SimplePropertyType {
+    /** Boolean true/false value */
     BOOLEAN,
+    /** Numeric value (integer or floating point) */
     NUMBER,
+    /** Text string value */
     STRING
 }

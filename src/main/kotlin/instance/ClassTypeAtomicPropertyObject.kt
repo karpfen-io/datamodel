@@ -17,6 +17,13 @@ package instance
 
 import meta.ClassTypeProperty
 
+/**
+ * Represents a single-object property in a DataObject.
+ *
+ * @property ofType The ClassTypeProperty definition from the metamodel.
+ * @property key The property name.
+ * @property value The stored ObjectReference.
+ */
 class ClassTypeAtomicPropertyObject(
     ofType: ClassTypeProperty,
     key: String,

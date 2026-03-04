@@ -15,4 +15,12 @@
  */
 package states.conditions
 
-data class EvalCondition(val code: String) : Condition(ConditionType.EVAL)
+/**
+ * Represents a code block evaluation condition for state transitions.
+ *
+ * @property code The code string to evaluate to determine transition eligibility.
+ */
+data class EvalCondition(val code: String) : Condition(ConditionType.EVAL) {
+    override fun toString(): String =
+        "EvalCondition(codeLength=${code.length})"
+}

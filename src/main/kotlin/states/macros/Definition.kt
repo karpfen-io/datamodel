@@ -15,4 +15,12 @@
  */
 package states.macros
 
-data class Definition(val codeBlock: CodeBlock)
+/**
+ * Represents the implementation block of a macro definition.
+ *
+ * @property codeBlock The code block containing the macro's implementation.
+ */
+data class Definition(val codeBlock: CodeBlock) {
+    override fun toString(): String =
+        "Definition(codeLength=${codeBlock.code.length})"
+}

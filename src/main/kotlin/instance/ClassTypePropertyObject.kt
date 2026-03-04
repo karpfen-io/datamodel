@@ -18,14 +18,35 @@ package instance
 import meta.ClassType
 import meta.ClassTypeProperty
 
+/**
+ * Base class for complex object property instances in a DataObject.
+ *
+ * @property ofType The ClassTypeProperty definition from the metamodel.
+ * @property key The property name.
+ */
 abstract class ClassTypePropertyObject(val ofType: ClassTypeProperty, val key: String) {
 
+    /**
+     * Checks if this property holds multiple objects.
+     *
+     * @return True if this is a list property.
+     */
     abstract fun isList(): Boolean
 
+    /**
+     * Gets the property type definition.
+     *
+     * @return The ClassTypeProperty from the metamodel.
+     */
     fun getPropertyType(): ClassTypeProperty {
         return ofType
     }
 
+    /**
+     * Gets the target class type name of this property.
+     *
+     * @return The class type name string.
+     */
     fun getClassType(): String {
         return ofType.reference.classTypeName
     }

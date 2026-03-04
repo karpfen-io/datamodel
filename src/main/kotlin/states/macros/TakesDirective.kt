@@ -15,4 +15,13 @@
  */
 package states.macros
 
-data class TakesDirective(val paramName: String, val paramType: String)
+/**
+ * Represents a parameter declaration in a macro definition.
+ *
+ * @property paramName The name of the parameter.
+ * @property paramType The type of the parameter.
+ */
+data class TakesDirective(val paramName: String, val paramType: String) {
+    override fun toString(): String =
+        "TakesDirective(paramName=$paramName, paramType=$paramType)"
+}

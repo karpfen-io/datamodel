@@ -17,6 +17,13 @@ package instance
 
 import meta.ClassTypeProperty
 
+/**
+ * Represents a list-valued object property in a DataObject.
+ *
+ * @property ofType The ClassTypeProperty definition from the metamodel.
+ * @property key The property name.
+ * @property values The list of stored ObjectReferences.
+ */
 class ClassTypeListPropertyObject(
     ofType: ClassTypeProperty,
     key: String,

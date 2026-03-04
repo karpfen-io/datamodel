@@ -15,6 +15,14 @@
  */
 package meta
 
+/**
+ * Represents a class type definition in a metamodel.
+ *
+ * @property name The name of the class type.
+ * @property comment Documentation or description for this class type.
+ * @property simpleProperties List of simple (primitive) property definitions.
+ * @property objectProperties List of complex object property definitions.
+ */
 data class ClassType(
     val name: String,
     val comment: String,
@@ -22,10 +30,20 @@ data class ClassType(
     val objectProperties: List<ClassTypeProperty>
 ){
 
+    /**
+     * Returns simple properties as a map keyed by property name.
+     *
+     * @return Map of property names to SimpleProperty objects.
+     */
     fun simplePropsAsMap(): Map<String, SimpleProperty> {
         return simpleProperties.associateBy { it.key }
     }
 
+    /**
+     * Returns object properties as a map keyed by property name.
+     *
+     * @return Map of property names to ClassTypeProperty objects.
+     */
     fun objectPropsAsMap(): Map<String, ClassTypeProperty> {
         return objectProperties.associateBy { it.key }
     }

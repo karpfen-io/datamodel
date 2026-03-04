@@ -15,6 +15,13 @@
  */
 package states.actions
 
+/**
+ * Enumeration of possible action right-side value types.
+ *
+ * - MACRO: A macro function call with parameters.
+ * - EVAL: A code block to be evaluated.
+ * - VALUE: A literal string value.
+ */
 enum class ActionValueType {
     MACRO,
     EVAL,

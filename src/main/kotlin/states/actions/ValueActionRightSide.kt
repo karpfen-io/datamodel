@@ -15,5 +15,13 @@
  */
 package states.actions
 
+/**
+ * Represents a literal string value as the right-side of an action rule.
+ *
+ * @property value The literal string value to use.
+ */
 data class ValueActionRightSide(val value: String) :
-    ActionRightSide(ActionValueType.VALUE)
+    ActionRightSide(ActionValueType.VALUE) {
+    override fun toString(): String =
+        "ValueActionRightSide(value=$value)"
+}

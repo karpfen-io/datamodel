@@ -15,6 +15,14 @@
  */
 package instance
 
+/**
+ * Represents a reference to a DataObject by ID.
+ *
+ * Used for linking objects in knows relationships before the actual object is resolved.
+ *
+ * @property objectId The ID of the referenced object.
+ * @property obj The resolved DataObject (populated after reference resolution).
+ */
 data class ObjectReference(
     var objectId: String,
     var obj: DataObject? = null

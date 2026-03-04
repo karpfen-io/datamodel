@@ -15,5 +15,13 @@
  */
 package states.actions
 
+/**
+ * Represents a code block to be evaluated as the right-side of an action rule.
+ *
+ * @property code The arbitrary code string to evaluate.
+ */
 data class EvalActionRightSide(val code: String) :
-    ActionRightSide(ActionValueType.EVAL)
+    ActionRightSide(ActionValueType.EVAL) {
+    override fun toString(): String =
+        "EvalActionRightSide(codeLength=${code.length})"
+}

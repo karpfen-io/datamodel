@@ -15,4 +15,12 @@
  */
 package states.conditions
 
-class ValueCondition(val boolVariable: String) : Condition(ConditionType.VALUE)
+/**
+ * Represents a boolean variable value condition for state transitions.
+ *
+ * @property boolVariable The name of the boolean variable to check.
+ */
+class ValueCondition(val boolVariable: String) : Condition(ConditionType.VALUE) {
+    override fun toString(): String =
+        "ValueCondition(boolVariable=$boolVariable)"
+}

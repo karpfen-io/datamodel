@@ -7,8 +7,9 @@ The langauge tools are based on ANTLR v4 grammars and the ANTLR runtime.
 Each DSL comes with its own runtime representation (dynamic object models), parsers, and a functional language construction API.
 
 As of right now, the following languages and language tools are available:
-- **kMeta**: A DSL for defining data metamodels. The KMeta grammar is documented in `guides/kmeta_grammar_guide.md` [goto](guides/kmeta_grammar_guide.md).
-- **kModel**: A DSL for defining data models that conform to KMeta metamodels. The kModel grammar is documented in `guides/kmodel_grammar_guide.md` [goto](guides/kmodel_grammar_guide.md).
+- **kMeta**: A DSL for defining data metamodels. The KMeta grammar is documented in [guides/kmeta_grammar_guide.md](guides/kmeta_grammar_guide.md).
+- **kModel**: A DSL for defining data models that conform to KMeta metamodels. The kModel grammar is documented in [guides/kmodel_grammar_guide.md](guides/kmodel_grammar_guide.md).
+- **KStates**: A DSL for defining hierarchical state machines. The KStates grammar is documented in [guides/kstates_grammar_guide.md](guides/kstates_grammar_guide.md).
 
 ## About the karpfen DSLs
 

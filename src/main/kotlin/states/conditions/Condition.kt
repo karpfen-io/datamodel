@@ -15,4 +15,12 @@
  */
 package states.conditions
 
-open class Condition(val conditionType: ConditionType)
+/**
+ * Base class for transition conditions in state machines.
+ *
+ * @property conditionType The type of this condition.
+ */
+open class Condition(val conditionType: ConditionType) {
+    override fun toString(): String =
+        "Condition(conditionType=$conditionType)"
+}

@@ -15,4 +15,12 @@
  */
 package states.actions
 
-data class ActionBlock(val actions: MutableList<ActionRule>)
+/**
+ * Represents a sequence of action rules to be executed.
+ *
+ * @property actions List of action rules in this block.
+ */
+data class ActionBlock(val actions: MutableList<ActionRule>) {
+    override fun toString(): String =
+        "ActionBlock(actions=${actions.size})"
+}

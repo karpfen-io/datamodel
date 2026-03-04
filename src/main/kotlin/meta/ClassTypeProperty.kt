@@ -15,6 +15,14 @@
  */
 package meta
 
+/**
+ * Represents a complex object property definition in a class type.
+ *
+ * @property key The name of the property.
+ * @property reference Reference to the target class type.
+ * @property isList True if this property holds a list of objects.
+ * @property associationType The type of association (LINK or EMBEDDED).
+ */
 data class ClassTypeProperty(
     val key: String,
     val reference: ClassTypeReference,

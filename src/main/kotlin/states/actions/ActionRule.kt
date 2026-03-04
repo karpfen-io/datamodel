@@ -15,8 +15,18 @@
  */
 package states.actions
 
+/**
+ * Represents a single action rule that modifies state or sends events.
+ *
+ * @property operationType The type of operation (SET, APPEND, or EVENT).
+ * @property leftSide The target property or event domain name.
+ * @property rightSide The value, macro call, or code expression to assign or evaluate.
+ */
 data class ActionRule(
     val operationType: ActionOperationType,
     val leftSide: String,
     val rightSide: ActionRightSide
-)
+) {
+    override fun toString(): String =
+        "ActionRule(operationType=$operationType, leftSide=$leftSide, rightSide=${rightSide.actionValueType})"
+}

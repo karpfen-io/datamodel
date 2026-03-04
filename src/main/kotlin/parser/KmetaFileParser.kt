@@ -20,13 +20,28 @@ import org.antlr.v4.runtime.CharStreams
 import org.antlr.v4.runtime.CommonTokenStream
 import java.io.File
 
+/**
+ * Parser for KMeta DSL files using ANTLR-generated parser classes.
+ */
 class KmetaFileParser {
 
+    /**
+     * Parses a KMeta metamodel from a file.
+     *
+     * @param filePath The path to the KMeta file to parse.
+     * @return The parsed metamodel structure.
+     */
     fun parseFile(filePath: String): KmetaFile {
         val file = File(filePath)
         return parseString(file.readText())
     }
 
+    /**
+     * Parses a KMeta metamodel from a string.
+     *
+     * @param content The KMeta content as a string.
+     * @return The parsed metamodel structure.
+     */
     fun parseString(content: String): KmetaFile {
         val inputStream = CharStreams.fromString(content)
         val lexer = KmetaLexer(inputStream)

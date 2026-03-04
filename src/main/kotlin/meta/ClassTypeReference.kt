@@ -15,6 +15,13 @@
  */
 package meta
 
+/**
+ * Represents a reference to another class type in the metamodel.
+ *
+ * @property associationType The type of association to the referenced class.
+ * @property classTypeName The name of the referenced class type.
+ * @property classType The resolved ClassType object (populated after parsing).
+ */
 data class ClassTypeReference(
     val associationType: AssociationType,
     val classTypeName: String,

@@ -19,9 +19,22 @@ import states.macros.Definition
 import states.macros.ReturnsDirective
 import states.macros.TakesDirective
 
+/**
+ * Represents a reusable macro definition in a state machine.
+ *
+ * Macros encapsulate complex logic that can be invoked from action rules with parameters.
+ *
+ * @property name The name identifier for this macro.
+ * @property takes List of input parameter declarations.
+ * @property returns The return type specification for this macro.
+ * @property definition The code block implementing this macro's logic.
+ */
 data class Macro(
     val name: String,
     val takes: List<TakesDirective>,
     val returns: ReturnsDirective,
     val definition: Definition
-)
+) {
+    override fun toString(): String =
+        "Macro(name=$name, takes=${takes.size}, returns=${returns.returnType})"
+}

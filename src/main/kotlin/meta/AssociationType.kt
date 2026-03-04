@@ -15,7 +15,12 @@
  */
 package meta
 
+/**
+ * Enumeration of association types between class types.
+ */
 enum class AssociationType {
+    /** Reference link to another object (by ID) */
     LINK,
+    /** Embedded object contained within this object */
     EMBEDDED
 }

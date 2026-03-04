@@ -18,13 +18,29 @@ package instance
 import meta.SimpleProperty
 import meta.SimplePropertyType
 
+/**
+ * Base class for simple (primitive) property instances in a DataObject.
+ *
+ * @property ofType The SimpleProperty definition from the metamodel.
+ * @property key The property name.
+ */
 abstract class SimplePropertyObject(
     val ofType: SimpleProperty,
     val key: String
 ){
 
+    /**
+     * Checks if this property holds multiple values.
+     *
+     * @return True if this is a list property.
+     */
     abstract fun isList(): Boolean
 
+    /**
+     * Gets the primitive type of this property.
+     *
+     * @return The SimplePropertyType enum value.
+     */
     fun getValueType(): SimplePropertyType {
         return ofType.propertyType
     }

@@ -15,6 +15,13 @@
  */
 package states.actions
 
+/**
+ * Enumeration of possible action rule operation types.
+ *
+ * - SET: Assign a value to a property.
+ * - APPEND: Add a value to a collection.
+ * - EVENT: Send an event to the event domain.
+ */
 enum class ActionOperationType {
     SET,
     APPEND,

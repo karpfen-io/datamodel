@@ -15,5 +15,16 @@
  */
 package states.conditions
 
+/**
+ * Represents an event-based condition for state transitions.
+ *
+ * Triggers when a specific event is received in a given domain.
+ *
+ * @property eventDomain The domain or source of the event.
+ * @property eventValue The specific event value to match.
+ */
 data class EventCondition(val eventDomain: String, val eventValue: String) :
-    Condition(ConditionType.EVENT)
+    Condition(ConditionType.EVENT) {
+    override fun toString(): String =
+        "EventCondition(eventDomain=$eventDomain, eventValue=$eventValue)"
+}

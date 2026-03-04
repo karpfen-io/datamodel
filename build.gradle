@@ -62,6 +62,26 @@ tasks.register('fixKmodelPackages') {
     }
 }
 
+// Task to fix package statements in kstates classes
+tasks.register('fixKstatesPackages') {
+    dependsOn copyAntlrSources
+    doLast {
+        def kstatesDir = file("${projectDir}/src/main/java/kstates")
+        if (kstatesDir.exists()) {
+            kstatesDir.eachFile { file ->
+                if (file.isFile() && file.name.endsWith('.java')) {
+                    def content = file.text
+                    if (content.contains('package kmeta;')) {
+                        content = content.replace('package kmeta;', 'package kstates;')
+                        file.text = content
+                        println "Fixed package in ${file.name}"
+                    }
+                }
+            }
+        }
+    }
+}
+
 // Configure source sets to only use src/main/java and ignore build/generated-src
 sourceSets {
     main {
@@ -72,8 +92,7 @@ sourceSets {
 }
 
 // Ensure ANTLR runs and files are copied before compilation
-compileKotlin.dependsOn fixKmodelPackages
-compileJava.dependsOn fixKmodelPackages
+compileKotlin.dependsOn fixKmodelPackages, fixKstatesPackages
+compileJava.dependsOn fixKmodelPackages, fixKstatesPackages
 
 compileTestKotlin.dependsOn generateTestGrammarSource
-

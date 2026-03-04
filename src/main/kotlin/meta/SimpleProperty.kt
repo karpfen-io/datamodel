@@ -15,6 +15,13 @@
  */
 package meta
 
+/**
+ * Represents a simple (primitive type) property definition in a class type.
+ *
+ * @property key The name of the property.
+ * @property propertyType The primitive type of this property.
+ * @property isList True if this property holds a list of values.
+ */
 data class SimpleProperty(
     val key: String,
     val propertyType: SimplePropertyType,

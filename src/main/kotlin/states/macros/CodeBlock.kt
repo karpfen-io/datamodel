@@ -15,4 +15,12 @@
  */
 package states.macros
 
-data class CodeBlock(val code: String)
+/**
+ * Represents an arbitrary code block as a single string.
+ *
+ * @property code The code string to be executed or evaluated.
+ */
+data class CodeBlock(val code: String) {
+    override fun toString(): String =
+        "CodeBlock(codeLength=${code.length})"
+}

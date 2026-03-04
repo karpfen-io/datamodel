@@ -22,13 +22,28 @@ import org.antlr.v4.runtime.CharStreams
 import org.antlr.v4.runtime.CommonTokenStream
 import java.io.File
 
+/**
+ * Parser for KModel DSL files using ANTLR-generated parser classes.
+ */
 class KmodelFileParser {
 
+    /**
+     * Parses a KModel instance from a file.
+     *
+     * @param filePath The path to the KModel file to parse.
+     * @return The parsed model structure.
+     */
     fun parseFile(filePath: String): KmodelFile {
         val file = File(filePath)
         return parseString(file.readText())
     }
 
+    /**
+     * Parses a KModel instance from a string.
+     *
+     * @param content The KModel content as a string.
+     * @return The parsed model structure.
+     */
     fun parseString(content: String): KmodelFile {
         val inputStream = CharStreams.fromString(content)
         val lexer = KmodelLexer(inputStream)

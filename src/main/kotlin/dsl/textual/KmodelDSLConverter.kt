@@ -32,8 +32,18 @@ import parser.ModelObject
 import java.io.File
 import kotlin.collections.iterator
 
+/**
+ * Converts KModel DSL strings and files into Model instances.
+ */
 object KmodelDSLConverter {
 
+    /**
+     * Parses a KModel string and converts it to a Model instance.
+     *
+     * @param content The KModel content as a string.
+     * @param meta The metamodel defining the structure for validation.
+     * @return The parsed model instance.
+     */
     fun parseKmodelString(content: String, meta: Metamodel): Model {
         val d = KmodelFileParser().parseString(content.trimIndent())
         val rootObjects = mutableListOf<DataObject>()
@@ -74,6 +84,24 @@ object KmodelDSLConverter {
         return Model(rootObjects, meta)
     }
 
+    /**
+     * Parses a KModel file and converts it to a Model instance.
+     *
+     * @param filePath The path to the KModel file to parse.
+     * @param meta The metamodel defining the structure for validation.
+     * @return The parsed model instance.
+     */
+    fun parseKmodelFile(filePath: String, meta: Metamodel): Model {
+        val content = File(filePath).readText()
+        return parseKmodelString(content, meta)
+    }
+
+    /**
+     * Recursively collects all DataObjects from a root list including embedded objects.
+     *
+     * @param rootObjects The root objects to start collection from.
+     * @return A set of all collected objects.
+     */
     fun collectAllObjects(rootObjects: MutableList<DataObject>): Set<DataObject> {
         val allObjects = mutableSetOf<DataObject>()
         for(obj in rootObjects) {
@@ -196,11 +224,13 @@ object KmodelDSLConverter {
         return dataObject
     }
 
-    fun parseKmodelFile(file: String, meta: Metamodel): Model {
-        val content = File(file).readText()
-        return parseKmodelString(content, meta)
-    }
-
+    /**
+     * Converts a Model instance back to KModel DSL string format.
+     *
+     * @param model The model to convert.
+     * @return The KModel DSL string representation.
+     * @throws NotImplementedError This operation is not yet implemented.
+     */
     fun convertToKmodelString(model: Model): String {
         throw NotImplementedError("Conversion from Model to Kmodel DSL string is not implemented yet.")
     }

@@ -28,6 +28,11 @@ import meta.ClassType
 import meta.Metamodel
 import meta.SimplePropertyType
 
+/**
+ * Provides a functional DSL builder for constructing Model instances.
+ *
+ * Allows programmatic creation of models without parsing DSL text.
+ */
 class ModelBuilder(val meta: Metamodel) {
 
     val dataObjects = mutableListOf<DataObject>()
